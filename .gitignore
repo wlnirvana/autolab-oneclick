@@ -2,3 +2,5 @@
 local/Autolab
 local/Tango
 local/db-data
+data
+id_rsa

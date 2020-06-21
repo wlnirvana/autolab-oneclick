@@ -2,7 +2,7 @@
 # config.py - Global configuration constants and runtime info
 #
 
-import logging, time, os
+import logging, time
 
 # Config - defines
 
@@ -30,22 +30,22 @@ class Config:
 
     # Courselabs directory. Must be created before starting Tango
     COURSELABS = "courselabs"
-
-    # Directory within each courselab where Tango will copy the output
+    
+    # Directory within each courselab where Tango will copy the output 
     # for jobs of that courselab
     OUTPUT_FOLDER = "output"
 
     # VMMS to use. Must be set to a VMMS implemented in vmms/ before
     # starting Tango.  Options are: "localDocker", "distDocker",
     # "tashiSSH", and "ec2SSH"
-    VMMS_NAME = "localDocker"
+    VMMS_NAME = "distDocker"
 
     #####
     # Part 2: Constants that shouldn't need to change very often.
     #
 
     # Keys for Tango to authenticate client requests
-    KEYS = ['test']
+    KEYS = ["test"]
 
     # Queue manager checks for new work every so many seconds
     DISPATCH_PERIOD = 0.2
@@ -57,7 +57,7 @@ class Config:
     NUM_THREADS = 20
 
     # We have the option to reuse VMs or discard them after each use
-    REUSE_VMS = True
+    REUSE_VMS = False
 
     # Worker waits this many seconds for functions waitvm, copyin (per
     # file), runjob, and copyout (per file) functions to finish.
@@ -73,10 +73,21 @@ class Config:
     BOOT2DOCKER_ENV_TIMEOUT = 5
     DOCKER_IMAGE_BUILD_TIMEOUT = 300
     DOCKER_RM_TIMEOUT = 5
+
     # Must be absolute path with trailing slash
-    # Default value of '*'' points this path to /path/to/Tango/volumes/
-    DOCKER_VOLUME_PATH = '/opt/TangoService/Tango/volumes/'
-    DOCKER_HOST_USER = ''
+    # Convention is /path/to/Tango/volumes/, default value below is for dockerised deployment
+    DOCKER_VOLUME_PATH = '/home/autograde/docker_volume/'
+
+    # Username for distant docker server with the autograding docker images
+    DOCKER_HOST_USER = 'autograde'
+
+    # Hostname of distant docker server
+    # TODO: use 'host.docker.internal' when docker >20.03.0 is released
+    # See https://github.com/moby/moby/pull/40007#issuecomment-578729356
+    HOST_ALIAS = ''
+
+    # Path to the docker binary on the distant docker server
+    DOCKER_HOST_DOCKER_PATH = '/usr/bin/docker'
 
     # Maximum size for input files in bytes
     MAX_INPUT_FILE_SIZE = 250 * 1024 * 1024 # 250MB
@@ -86,7 +97,7 @@ class Config:
 
     # VM ulimit values
     VM_ULIMIT_FILE_SIZE = 100 * 1024 * 1024
-    VM_ULIMIT_USER_PROC = 100
+    VM_ULIMIT_USER_PROC = 1000
 
     # How many times to reschedule a failed job
     JOB_RETRIES = 2
@@ -144,3 +155,4 @@ class Config:
     SECURITY_KEY_NAME = ''
     TANGO_RESERVATION_ID = ''
     INSTANCE_RUNNING = 16  # Status code of a instance that is running
+

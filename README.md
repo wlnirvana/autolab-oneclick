@@ -1,7 +1,14 @@
 # Autolab OneClick Installation
 
-Autolab-OneClick is the fastest way to install a full autograding environment and course management system!
-
-You can setup Autolab in a [local](https://github.com/autolab/autolab-oneclick/wiki/Autolab-Local-Installation) or [server](https://github.com/autolab/autolab-oneclick/wiki/Autolab-Server-Installation) environment
-
-Contact autolab-dev@andrew.cmu.edu for questions. Please fill out Github issues if you encounter any problems.
+1. Pull your autolab image and tag it as `autolab`
+2. Pull your tango image and tag it as `tango`
+3. Pull your autograding images and tag them properly
+4. YOU MUST CONFIGURE TANGO PARAMETERS.
+5. YOU SHOULD CONFIGURE AUTOLAB AS WELL.
+4. `cd server`
+5. `docker-compose up`
+6. `docker exec` into the autolab container
+7. `RAILS_ENV=production bundle exec rails db:create`
+8. `RAILS_ENV=production bundle exec rails db:migrate`
+9. `RAILS_ENV=production bundle exec rails db:seed`
+10. `chown app:app courses`
