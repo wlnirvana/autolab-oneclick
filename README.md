@@ -4,6 +4,8 @@
 2. Pull your tango image and tag it as `tango`
 3. Pull your autograding images and tag them properly
 4. YOU MUST CONFIGURE TANGO PARAMETERS.
+  - Copy `config.template.py` as `config.py` and search for `<TODO>`.
+  - Follow Tango README.
 5. YOU SHOULD CONFIGURE AUTOLAB AS WELL.
 4. `cd server`
 5. `docker-compose up`

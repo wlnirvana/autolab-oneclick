@@ -75,19 +75,25 @@ class Config:
     DOCKER_RM_TIMEOUT = 5
 
     # Must be absolute path with trailing slash
-    # Convention is /path/to/Tango/volumes/, default value below is for dockerised deployment
-    DOCKER_VOLUME_PATH = '/home/autograde/docker_volume/'
+    # For distDocker VMMS, this path (on the distant docker server) is where
+    # data are copied in and out.
+    # Convention is /home/autograde/docker_volume/ where autograde is the
+    # username configured below. Note that you must manually create the
+    # directory for Tango to function properly
+    DOCKER_VOLUME_PATH = '<TODO>'
 
     # Username for distant docker server with the autograding docker images
-    DOCKER_HOST_USER = 'autograde'
+    # Convention is autograde
+    DOCKER_HOST_USER = '<TODO>'
 
     # Hostname of distant docker server
-    # TODO: use 'host.docker.internal' when docker >20.03.0 is released
+    # TODO: use 'host.docker.internal' as convention for docker >20.03.0
     # See https://github.com/moby/moby/pull/40007#issuecomment-578729356
-    HOST_ALIAS = ''
+    HOST_ALIAS = '<TODO>'
 
     # Path to the docker binary on the distant docker server
-    DOCKER_HOST_DOCKER_PATH = '/usr/bin/docker'
+    # Convention is /usr/bin/docker on linux
+    DOCKER_HOST_DOCKER_PATH = '<TODO>'
 
     # Maximum size for input files in bytes
     MAX_INPUT_FILE_SIZE = 250 * 1024 * 1024 # 250MB
