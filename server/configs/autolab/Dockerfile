@@ -6,4 +6,5 @@ COPY config/initializers/devise.rb /home/app/webapp/config/initializers/devise.r
 COPY nginx.conf /etc/nginx/sites-enabled/webapp.conf
 
 RUN cd /home/app/webapp && \
-  RAILS_ENV=production bundle exec rake assets:precompile
+  RAILS_ENV=production bundle exec rake assets:precompile && \
+  chown -R app:app /home/app/webapp
