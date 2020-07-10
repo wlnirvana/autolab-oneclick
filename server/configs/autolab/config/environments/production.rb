@@ -79,6 +79,7 @@ Autolab3::Application.configure do
   # config.action_mailer.smtp_settings = {
   #   address:              ENV['EMAIL_SERVICE_API_ADDRESS'],
   #   port:                 ENV['EMAIL_SERVICE_PORT'],
+  #   tls:                  true,
   #   enable_starttls_auto: true,
   #   authentication:       'login',
   #   user_name:            ENV['EMAIL_SERVICE_USER_NAME'],
