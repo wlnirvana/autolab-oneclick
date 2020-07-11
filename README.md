@@ -13,4 +13,4 @@
 7. `RAILS_ENV=production bundle exec rails db:create`
 8. `RAILS_ENV=production bundle exec rails db:migrate`
 9. `RAILS_ENV=production bundle exec rails db:seed`
-10. `chown app:app courses`
+10. `chown app:app courses courseConfig assessmentConfig`
