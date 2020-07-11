@@ -5,6 +5,7 @@ services:
     volumes:
       - ./configs/tango/id_rsa:/opt/TangoService/Tango/vmms/id_rsa
       - ./configs/tango/config.py:/opt/TangoService/Tango/config.py
+      - ./data/tango/courselabs:/opt/TangoService/Tango/courselabs
   db:
     image: mysql:5.7.27
     environment:
@@ -15,6 +16,8 @@ services:
   autolab:
     build: ./configs/autolab
     ports:
-      - '443:80'
+      - '8080:80'
     volumes:
       - ./data/autolab/courses:/home/app/webapp/courses
+      - ./data/autolab/courseConfig:/home/app/webapp/courseConfig
+      - ./data/autolab/assessmentConfig:/home/app/webapp/assessmentConfig
