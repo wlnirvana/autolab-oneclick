@@ -21,3 +21,4 @@ services:
       - ./data/autolab/courses:/home/app/webapp/courses
       - ./data/autolab/courseConfig:/home/app/webapp/courseConfig
       - ./data/autolab/assessmentConfig:/home/app/webapp/assessmentConfig
+      - ./data/autolab/log:/home/app/webapp/log

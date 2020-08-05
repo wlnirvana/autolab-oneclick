@@ -7,4 +7,6 @@ COPY nginx.conf /etc/nginx/sites-enabled/webapp.conf
 
 RUN cd /home/app/webapp && \
   RAILS_ENV=production bundle exec rake assets:precompile && \
+  mkdir -p /home/app/webapp/courses && \
+  mkdir -p /home/app/webapp/courseConfig && \
   chown -R app:app /home/app/webapp
